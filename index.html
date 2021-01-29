@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="caseMinusBtn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="inputCase" type="text" class="form-control text-center" value="1">
+                           <button id="casePlusBtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="casePrice">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -78,13 +78,17 @@
       </div>
    </section>
    <script>
+
+      // increasing phone Quantity by clicking plus button
+
       const plusBtn = document.getElementById("plusBtn");
-      plusBtn.addEventListener("click", function(){
+      plusBtn.addEventListener("click", function () {
          const inputPhone = document.getElementById("inputPhone").value;
          const totalInput = parseFloat(inputPhone);
          const inputNumber = totalInput + 1;
-
          document.getElementById("inputPhone").value = inputNumber;
+
+         // showing phone Price in Top
          const phonePriceincrese = document.getElementById("phonePrice").innerText;
          const phonePriceincreseValue = parseFloat(phonePriceincrese);
          const totalPhonePrice = inputNumber * 1219;
@@ -92,18 +96,52 @@
 
       })
       const minusBtn = document.getElementById("minusBtn");
-      minusBtn.addEventListener("click", function(){
-         
-          const inputPhone = document.getElementById("inputPhone").value;
-          const totalInput = parseFloat(inputPhone);
-          const inputNumber = totalInput - 1;
-          document.getElementById("inputPhone").value = inputNumber;
+      minusBtn.addEventListener("click", function () {
 
-          document.getElementById("inputPhone").value = inputNumber;
+         // decreasing phone Quantity by clicking minus button
+
+         const inputPhone = document.getElementById("inputPhone").value;
+         const totalInput = parseFloat(inputPhone);
+         const inputNumber = totalInput - 1;
+         document.getElementById("inputPhone").value = inputNumber;
+
+         // showing phone price in top
+         document.getElementById("inputPhone").value = inputNumber;
          const phonePriceDecrease = document.getElementById("phonePrice").innerText;
          const phonePriceDecreaseValue = parseFloat(phonePriceDecrease);
          const totalPhonePrice = inputNumber * 1219;
          document.getElementById("phonePrice").innerText = totalPhonePrice;
+      })
+
+      // Increasing Case Quantity
+
+      const casePlusBtn = document.getElementById("casePlusBtn");
+      casePlusBtn.addEventListener("click", function () {
+         const inputCase = document.getElementById("inputCase").value;
+         const totalInputCase = parseInt(inputCase);
+         const inputCaseNumber = totalInputCase + 1;
+         document.getElementById("inputCase").value = inputCaseNumber;
+
+       // show the price as quantity plus
+
+         const casePriceIncrease = document.getElementById("casePrice").innerText;
+         const casePriceValue = parseInt(casePriceIncrease);
+         const totalCasePrice = inputCaseNumber * 59;
+         document.getElementById("casePrice").innerText = totalCasePrice;
+      })
+
+      // case minus button event handler and quantity minus
+      const caseMinusBtn = document.getElementById("caseMinusBtn");
+      caseMinusBtn.addEventListener("click", function () {
+         const inputCase = document.getElementById("inputCase").value;
+         const totalInputCase = parseInt(inputCase);
+         const inputCaseNumber = totalInputCase - 1;
+         document.getElementById("inputCase").value = inputCaseNumber;
+
+         const casePriceDecrease = document.getElementById("casePrice").innerText;
+         const casePriceValue = parseInt(casePriceDecrease);
+         const totalCasePrice = inputCaseNumber * 59;
+         document.getElementById("casePrice").innerText = totalCasePrice;
       })
    </script>
 </body>
